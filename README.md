@@ -10,5 +10,18 @@ Personally, I see Bootstraps' grid as the best grid out there. It is so diverse 
 
 Well we are already using ReactJS to write our HTML, so why not make the HTML we write look more specific to the component we want?
 
+`<Container />` is a container.
+
 `<Row />` is a row.
+
 `<Column />` is a column.
+
+## How to use
+
+Take the copy the [build file](dist/build.js) into your project.
+
+Use the elements how you would imagine - read docs below for more help!
+
+- [Container](docs/container.md)
+- [Row](docs/row.md)
+- [Column](docs/column.md)
