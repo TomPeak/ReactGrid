@@ -1,4 +1,4 @@
-# Bootstrap grid with ReactJS
+# Bootstrap grid with ReactJS [![Build Status](https://travis-ci.org/iamphill/ReactGrid.svg?branch=master)](https://travis-ci.org/iamphill/ReactGrid)
 
 ReactJS is possibly the greatest to happen to the DOM in many years & Bootstrap is possibly the best front-end framework on the web.
 

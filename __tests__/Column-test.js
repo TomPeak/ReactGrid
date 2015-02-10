@@ -47,5 +47,48 @@ describe('Column', function () {
 
       expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-lg-1');
     });
+
+    it ('should have custom class name', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column large={ 1 }
+                className={ 'some-class' } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].indexOf('some-class') >= 0).toEqual(true);
+    });
+  });
+
+  describe('offset', function () {
+    it('should have xs offset class', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmallOffset={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-offset-1');
+    });
+
+    it('should have small offset class', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column smallOffset={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-sm-offset-1');
+    });
+
+    it('should have medium offset class', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column mediumOffset={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-offset-1');
+    });
+
+    it('should have large offset class', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column largeOffset={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-lg-offset-1');
+    });
   });
 });
