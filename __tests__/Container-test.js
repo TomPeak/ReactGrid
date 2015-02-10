@@ -34,7 +34,7 @@ describe('Container', function () {
   });
 
   describe('pass class name', function () {
-    it('should have `.container`', function () {
+    it('should have `.some-class`', function () {
       var el = TestUtils.renderIntoDocument(
         <Container className={ 'some-class' } />
       );
