@@ -1,0 +1,51 @@
+jest.dontMock('../dist/components/Column.js');
+
+var React = require('react/addons');
+var Column = require('../dist/components/Column.js')(React);
+var TestUtils = React.addons.TestUtils;
+
+describe('Column', function () {
+  describe('element type', function () {
+    it('should be a div', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column />
+      );
+
+      expect(el['_renderedComponent']['_tag']).toEqual('div');
+    });
+  });
+
+  describe('element class name', function () {
+    it('should have xs column class', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmall={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-1');
+    });
+
+    it('should have small column class', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column small={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-sm-1');
+    });
+
+    it('should have medium column class', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column medium={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-1');
+    });
+
+    it('should have large column class', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column large={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-lg-1');
+    });
+  });
+});

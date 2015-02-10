@@ -12,10 +12,10 @@ module.exports = function (React) {
     },
     render: function () {
       return (
-        <div className={ 'row ' + this.props.className }>
-          { /* Render children */ }
-          { this.props.children }
-        </div>
+        React.createElement("div", {className:  'row ' + this.props.className}, 
+          /* Render children */ 
+           this.props.children
+        )
       )
     }
   });

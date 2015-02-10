@@ -5,11 +5,11 @@ module.exports = function (grunt) {
     watch: {
       jsx: {
         files: ['lib/components/*.jsx'],
-        tasks: ['browserify']
+        tasks: ['react:components', 'browserify']
       },
       example: {
         files: ['example/scripts/lib/*.jsx'],
-        tasks: ['react']
+        tasks: ['react:example']
       }
     },
     browserify: {
@@ -24,6 +24,15 @@ module.exports = function (grunt) {
       }
     },
     react: {
+      components: {
+        files: [{
+          expand: true,
+          cwd: 'lib/components',
+          src: ['**/*.jsx'],
+          dest: 'dist/components',
+          ext: '.js'
+        }]
+      },
       example: {
         files: [{
           expand: true,

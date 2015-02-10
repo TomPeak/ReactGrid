@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "MIT",
@@ -13,10 +13,16 @@
     "grunt-browserify": "^3.3.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-react": "^0.10.0",
+    "jest-cli": "^0.2.2",
     "load-grunt-tasks": "^3.1.0",
     "reactify": "^1.0.0"
   },
   "dependencies": {
-    "react": "^0.12.2"
+    "react": "^0.12.2",
+    "react-tools": "^0.12.2"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": ["react"]
   }
 }

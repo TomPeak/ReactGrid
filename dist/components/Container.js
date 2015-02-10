@@ -13,9 +13,9 @@ module.exports = function (React) {
     },
     render: function () {
       return (
-        <div className={ 'container' + (this.props.fluid ? '-fluid' : '') + ' ' + this.props.className }>
-          { this.props.children }
-        </div>
+        React.createElement("div", {className:  'container' + (this.props.fluid ? '-fluid' : '') + ' ' + this.props.className}, 
+           this.props.children
+        )
       )
     }
   });
