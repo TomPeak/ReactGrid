@@ -26,3 +26,26 @@ Use the elements how you would imagine - read docs below for more help!
 - [Row](docs/row.md)
 - [Column](docs/column.md)
 - [Block](docs/block.md)
+
+### Using with NodeJS
+
+Install with npm
+
+```
+npm install --save react-bootstrap-grid
+```
+
+Then include on page and go crazy!
+
+```js
+var ReactGrid = require('react-bootstrap-grid');
+
+/*
+ReactGrid contains these definitions:
+
+ReactGrid.Container
+ReactGrid.Row
+ReactGrid.Column
+ReactGrid.Block
+*/
+```
