@@ -51,13 +51,13 @@ module.exports = function (React) {
       if (this.props.extraSmallOffset !== 0) {
         offsets.push('col-xs-offset-' + this.props.extraSmallOffset);
       }
-      if (this.props.smallOffset !== 0) {
+      if (this.props.smallOffset !== 0 && this.props.smallOffset !== this.props.extraSmallOffset) {
         offsets.push('col-sm-offset-' + this.props.smallOffset);
       }
-      if (this.props.mediumOffset !== 0) {
+      if (this.props.mediumOffset !== 0 && this.props.mediumOffset !== this.props.smallOffset) {
         offsets.push('col-md-offset-' + this.props.mediumOffset);
       }
-      if (this.props.largeOffset !== 0) {
+      if (this.props.largeOffset !== 0 && this.props.largeOffset !== this.props.mediumOffset) {
         offsets.push('col-lg-offset-' + this.props.largeOffset);
       }
 

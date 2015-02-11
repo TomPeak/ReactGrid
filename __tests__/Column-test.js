@@ -92,7 +92,7 @@ describe('Column', function () {
     });
   });
 
-  describe('idetical column numbers', function () {
+  describe('identical column numbers', function () {
     it('should ignore sm', function () {
       var el = TestUtils.renderIntoDocument(
         <Column extraSmall={ 1 }
@@ -129,6 +129,35 @@ describe('Column', function () {
       );
 
       expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-1');
+    });
+  });
+
+  describe('identical offset numbers', function () {
+    it('should ignore sm-offset', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmallOffset={ 1 }
+                smallOffset={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-offset-1');
+    });
+
+    it('should ignore md-offset', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column smallOffset={ 1 }
+                mediumOffset={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-sm-offset-1');
+    });
+
+    it('should ignore lg-offset', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column mediumOffset={ 1 }
+                largeOffset={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-offset-1');
     });
   });
 });
