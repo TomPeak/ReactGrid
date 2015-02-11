@@ -1,5 +1,5 @@
 {
-  "name": "ReactGrid",
+  "name": "ReactBootstrapGrid",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest"
   },
-  "author": "",
+  "author": "Phil Hughes <me@iamphill.com>",
   "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
