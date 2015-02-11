@@ -91,4 +91,44 @@ describe('Column', function () {
       expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-lg-offset-1');
     });
   });
+
+  describe('idetical column numbers', function () {
+    it('should ignore sm', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmall={ 1 }
+                small={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-1');
+    });
+
+    it('should ignore md', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column small={ 1 }
+                medium={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-sm-1');
+    });
+
+    it('should ignore lg', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column medium={ 1 }
+                large={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-1');
+    });
+
+    it('should ignore sm, md, lg', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmall={ 1 }
+                small={ 1 }
+                medium={ 1 }
+                large={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-1');
+    });
+  });
 });

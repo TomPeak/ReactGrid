@@ -39,13 +39,13 @@ module.exports = function (React) {
       if (this.props.extraSmall !== 0) {
         colWidths.push('col-xs-' + this.props.extraSmall);
       }
-      if (this.props.small !== 0) {
+      if (this.props.small !== 0 && this.props.small !== this.props.extraSmall) {
         colWidths.push('col-sm-' + this.props.small);
       }
-      if (this.props.medium !== 0) {
+      if (this.props.medium !== 0 && this.props.medium !== this.props.small) {
         colWidths.push('col-md-' + this.props.medium);
       }
-      if (this.props.large !== 0) {
+      if (this.props.large !== 0 && this.props.large !== this.props.medium) {
         colWidths.push('col-lg-' + this.props.large);
       }
 
