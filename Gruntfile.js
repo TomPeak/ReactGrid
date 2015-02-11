@@ -2,6 +2,7 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    license: grunt.file.read('LICENSE.md'),
     watch: {
       jsx: {
         files: ['lib/components/*.jsx'],
@@ -42,8 +43,19 @@ module.exports = function (grunt) {
           ext: '.js'
         }]
       }
+    },
+    uglify: {
+      options: {
+        banner: '/*\n<%= license %>*/\n'
+      },
+      dist: {
+        files: {
+          'dist/build.min.js': ['dist/build.js']
+        }
+      }
     }
   });
 
   grunt.registerTask('default', ['watch']);
+  grunt.registerTask('build', ['browserify:dist', 'uglify']);
 };
