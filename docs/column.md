@@ -43,3 +43,12 @@ Bootstrap's grid also allows you to 'push' boxes around.
 - smallPush `.col-sm-push-`
 - mediumPush `.col-md-push-`
 - largePush `.col-lg-push-`
+
+### Pull
+
+Bootstrap's grid also allows you to 'Pull' boxes around.
+
+- extraSmallPull `.col-xs-pull-`
+- smallPull `.col-sm-pull-`
+- mediumPull `.col-md-pull-`
+- largePull `.col-lg-pull-`

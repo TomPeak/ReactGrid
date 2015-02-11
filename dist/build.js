@@ -59,15 +59,19 @@ module.exports = function (React) {
       extraSmall: React.PropTypes.number,
       extraSmallOffset: React.PropTypes.number,
       extraSmallPush: React.PropTypes.number,
+      extraSmallPull: React.PropTypes.number,
       small: React.PropTypes.number,
       smallOffset: React.PropTypes.number,
       smallPush: React.PropTypes.number,
+      smallPull: React.PropTypes.number,
       medium: React.PropTypes.number,
       mediumOffset: React.PropTypes.number,
       mediumPush: React.PropTypes.number,
+      mediumPull: React.PropTypes.number,
       large: React.PropTypes.number,
       largeOffset: React.PropTypes.number,
-      largePush: React.PropTypes.number
+      largePush: React.PropTypes.number,
+      largePull: React.PropTypes.number
     },
     getDefaultProps: function () {
       return {
@@ -75,15 +79,19 @@ module.exports = function (React) {
         extraSmall: 0,
         extraSmallOffset: 0,
         extraSmallPush: 0,
+        extraSmallPull: 0,
         small: 0,
         smallOffset: 0,
         smallPush: 0,
+        smallPull: 0,
         medium: 0,
         mediumOffset: 0,
         mediumPush: 0,
+        mediumPull: 0,
         large: 0,
         largeOffset: 0,
-        largePush: 0
+        largePush: 0,
+        largePull: 0
       }
     },
     getColumnWidths: function () {
@@ -142,6 +150,24 @@ module.exports = function (React) {
 
       return pushes;
     },
+    getColumnPull: function () {
+      var pulls = [];
+
+      if (this.props.extraSmallPull !== 0) {
+        pulls.push('col-xs-pull-' + this.props.extraSmallPull);
+      }
+      if (this.props.smallPull !== 0 && this.props.smallPull !== this.props.extraSmallPull) {
+        pulls.push('col-sm-pull-' + this.props.smallPull);
+      }
+      if (this.props.mediumPull !== 0 && this.props.mediumPull !== this.props.smallPull) {
+        pulls.push('col-md-pull-' + this.props.mediumPull);
+      }
+      if (this.props.largePull !== 0 && this.props.largePull !== this.props.mediumPull) {
+        pulls.push('col-lg-pull-' + this.props.largePull);
+      }
+
+      return pulls;
+    },
     render: function () {
       // Create class name
       var className = [];
@@ -154,6 +180,7 @@ module.exports = function (React) {
 
       // Get push and pull
       className = className.concat(this.getColumnPush());
+      className = className.concat(this.getColumnPull());
 
       return (
         React.createElement("div", {className:  className.join(' ') + ' ' + this.props.className}, 

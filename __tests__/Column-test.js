@@ -126,6 +126,40 @@ describe('Column', function () {
     });
   });
 
+  describe('pull', function () {
+    it('should have xs pull', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmallPull={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-pull-1');
+    });
+
+    it('should have sm pull', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column smallPull={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-sm-pull-1');
+    });
+
+    it('should have md pull', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column mediumPull={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-pull-1');
+    });
+
+    it('should have lg pull', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column largePull={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-lg-pull-1');
+    });
+  });
+
   describe('identical column numbers', function () {
     it('should ignore sm', function () {
       var el = TestUtils.renderIntoDocument(
@@ -221,6 +255,35 @@ describe('Column', function () {
       );
 
       expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-push-1');
+    });
+  });
+
+  describe('identical pull numbers', function () {
+    it('should ignore sm-pull', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmallPull={ 1 }
+                smallPull={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-pull-1');
+    });
+
+    it('should ignore md-pull', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column smallPull={ 1 }
+                mediumPull={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-sm-pull-1');
+    });
+
+    it('should ignore lg-pull', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column mediumPull={ 1 }
+                largePull={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-pull-1');
     });
   });
 });
