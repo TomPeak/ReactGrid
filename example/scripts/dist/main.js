@@ -13,7 +13,8 @@ var Main = React.createClass({displayName: "Main",
             React.createElement("p", null, 
               "Some text inside a column!"
             )
-          )
+          ), 
+          React.createElement(Block, {extraSmall: true })
         )
       )
     )

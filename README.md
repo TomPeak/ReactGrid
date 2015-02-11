@@ -25,3 +25,4 @@ Use the elements how you would imagine - read docs below for more help!
 - [Container](docs/container.md)
 - [Row](docs/row.md)
 - [Column](docs/column.md)
+- [Block](docs/block.md)

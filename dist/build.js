@@ -1,10 +1,56 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 window.Container = require('./components/Container.jsx')(React);
 window.Column = require('./components/Column.jsx')(React);
+window.Block = require('./components/Block.jsx')(React);
 window.Row = require('./components/Row.jsx')(React);
 
 
-},{"./components/Column.jsx":2,"./components/Container.jsx":3,"./components/Row.jsx":4}],2:[function(require,module,exports){
+},{"./components/Block.jsx":2,"./components/Column.jsx":3,"./components/Container.jsx":4,"./components/Row.jsx":5}],2:[function(require,module,exports){
+module.exports = function (React) {
+  return React.createClass({
+    displayName: 'Block',
+    propTypes: {
+      extraSmall: React.PropTypes.bool,
+      small: React.PropTypes.bool,
+      medium: React.PropTypes.bool,
+      large: React.PropTypes.bool
+    },
+    getDefaultProps: function () {
+      return {
+        extraSmall: false,
+        small: false,
+        medium: false,
+        large: false
+      };
+    },
+    getClassName: function () {
+      var className = [];
+
+      if (this.props.extraSmall) {
+        className.push('visible-xs-block');
+      }
+      if (this.props.small) {
+        className.push('visible-sm-block');
+      }
+      if (this.props.medium) {
+        className.push('visible-md-block');
+      }
+      if (this.props.large) {
+        className.push('visible-lg-block');
+      }
+
+      return className.join(' ');
+    },
+    render: function() {
+      return (
+        React.createElement("div", {className:  'clearfix ' + this.getClassName()})
+      )
+    }
+  });
+};
+
+
+},{}],3:[function(require,module,exports){
 module.exports = function (React) {
   return React.createClass({
     displayName: 'Column',
@@ -90,7 +136,7 @@ module.exports = function (React) {
 }
 
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 module.exports = function (React) {
   return React.createClass({
     displayName: 'Container',
@@ -115,7 +161,7 @@ module.exports = function (React) {
 }
 
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function (React) {
   return React.createClass({
     displayName: 'Row',

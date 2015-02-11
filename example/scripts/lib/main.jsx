@@ -14,6 +14,7 @@ var Main = React.createClass({
               Some text inside a column!
             </p>
           </Column>
+          <Block extraSmall={ true } />
         </Row>
       </Container>
     )
