@@ -5,24 +5,32 @@ module.exports = function (React) {
       className: React.PropTypes.string,
       extraSmall: React.PropTypes.number,
       extraSmallOffset: React.PropTypes.number,
+      extraSmallPush: React.PropTypes.number,
       small: React.PropTypes.number,
       smallOffset: React.PropTypes.number,
+      smallPush: React.PropTypes.number,
       medium: React.PropTypes.number,
       mediumOffset: React.PropTypes.number,
+      mediumPush: React.PropTypes.number,
       large: React.PropTypes.number,
-      largeOffset: React.PropTypes.number
+      largeOffset: React.PropTypes.number,
+      largePush: React.PropTypes.number
     },
     getDefaultProps: function () {
       return {
         className: '',
         extraSmall: 0,
         extraSmallOffset: 0,
+        extraSmallPush: 0,
         small: 0,
         smallOffset: 0,
+        smallPush: 0,
         medium: 0,
         mediumOffset: 0,
+        mediumPush: 0,
         large: 0,
-        largeOffset: 0
+        largeOffset: 0,
+        largePush: 0
       }
     },
     getColumnWidths: function () {
@@ -63,6 +71,24 @@ module.exports = function (React) {
 
       return offsets;
     },
+    getColumnPush: function() {
+      var pushes = [];
+
+      if (this.props.extraSmallPush !== 0) {
+        pushes.push('col-xs-push-' + this.props.extraSmallPush);
+      }
+      if (this.props.smallPush !== 0 && this.props.smallPush !== this.props.extraSmallPush) {
+        pushes.push('col-sm-push-' + this.props.smallPush);
+      }
+      if (this.props.mediumPush !== 0 && this.props.mediumPush !== this.props.smallPush) {
+        pushes.push('col-md-push-' + this.props.mediumPush);
+      }
+      if (this.props.largePush !== 0 && this.props.largePush !== this.props.mediumPush) {
+        pushes.push('col-lg-push-' + this.props.largePush);
+      }
+
+      return pushes;
+    },
     render: function () {
       // Create class name
       var className = [];
@@ -72,6 +98,9 @@ module.exports = function (React) {
 
       // Column offsets
       className = className.concat(this.getColumnOffsets());
+
+      // Get push and pull
+      className = className.concat(this.getColumnPush());
 
       return (
         <div className={ className.join(' ') + ' ' + this.props.className }>

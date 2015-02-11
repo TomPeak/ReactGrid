@@ -9,7 +9,7 @@ var Main = React.createClass({displayName: "Main",
                   small: 1, 
                   medium: 4, 
                   large: 8, 
-                  largeOffset: 4 }, 
+                  extraSmallPush: 2 }, 
             React.createElement("p", null, 
               "Some text inside a column!"
             )

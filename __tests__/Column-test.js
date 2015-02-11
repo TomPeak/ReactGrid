@@ -92,6 +92,40 @@ describe('Column', function () {
     });
   });
 
+  describe('push', function () {
+    it('should have xs push', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmallPush={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-push-1');
+    });
+
+    it('should have sm push', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column smallPush={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-sm-push-1');
+    });
+
+    it('should have md push', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column mediumPush={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-push-1');
+    });
+
+    it('should have lg push', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column largePush={ 1 } />
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-lg-push-1');
+    });
+  });
+
   describe('identical column numbers', function () {
     it('should ignore sm', function () {
       var el = TestUtils.renderIntoDocument(
@@ -158,6 +192,35 @@ describe('Column', function () {
       );
 
       expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-offset-1');
+    });
+  });
+
+  describe('identical push numbers', function () {
+    it('should ignore sm-push', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column extraSmallPush={ 1 }
+                smallPush={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-xs-push-1');
+    });
+
+    it('should ignore md-push', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column smallPush={ 1 }
+                mediumPush={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-sm-push-1');
+    });
+
+    it('should ignore lg-push', function () {
+      var el = TestUtils.renderIntoDocument(
+        <Column mediumPush={ 1 }
+                largePush={ 1 }/>
+      );
+
+      expect(el['_renderedComponent']['props']['className'].trim()).toEqual('col-md-push-1');
     });
   });
 });

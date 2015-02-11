@@ -9,7 +9,7 @@ var Main = React.createClass({
                   small={ 1 }
                   medium={ 4 }
                   large={ 8 }
-                  largeOffset={ 4 }>
+                  extraSmallPush={ 2 }>
             <p>
               Some text inside a column!
             </p>
