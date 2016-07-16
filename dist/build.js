@@ -4,7 +4,6 @@ window.Column = require('./components/Column.jsx')(React);
 window.Block = require('./components/Block.jsx')(React);
 window.Row = require('./components/Row.jsx')(React);
 
-
 },{"./components/Block.jsx":2,"./components/Column.jsx":3,"./components/Container.jsx":4,"./components/Row.jsx":5}],2:[function(require,module,exports){
 module.exports = function (React) {
   return React.createClass({
@@ -13,14 +12,16 @@ module.exports = function (React) {
       extraSmall: React.PropTypes.bool,
       small: React.PropTypes.bool,
       medium: React.PropTypes.bool,
-      large: React.PropTypes.bool
+      large: React.PropTypes.bool,
+      style: React.PropTypes.object
     },
     getDefaultProps: function () {
       return {
         extraSmall: false,
         small: false,
         medium: false,
-        large: false
+        large: false,
+        style: {}
       };
     },
     getClassName: function () {
@@ -43,12 +44,11 @@ module.exports = function (React) {
     },
     render: function() {
       return (
-        React.createElement("div", {className:  'clearfix ' + this.getClassName()})
+        React.createElement("div", {className:  'clearfix ' + this.getClassName(), style:  this.props.style})
       )
     }
   });
 };
-
 
 },{}],3:[function(require,module,exports){
 module.exports = function (React) {
@@ -71,7 +71,8 @@ module.exports = function (React) {
       large: React.PropTypes.number,
       largeOffset: React.PropTypes.number,
       largePush: React.PropTypes.number,
-      largePull: React.PropTypes.number
+      largePull: React.PropTypes.number,
+      style: React.PropTypes.object,
     },
     getDefaultProps: function () {
       return {
@@ -91,7 +92,8 @@ module.exports = function (React) {
         large: 0,
         largeOffset: 0,
         largePush: 0,
-        largePull: 0
+        largePull: 0,
+        style: {},
       }
     },
     getColumnWidths: function () {
@@ -183,14 +185,13 @@ module.exports = function (React) {
       className = className.concat(this.getColumnPull());
 
       return (
-        React.createElement("div", {className:  className.join(' ') + ' ' + this.props.className}, 
+        React.createElement("div", {className:  className.join(' ') + ' ' + this.props.className, style:  this.props.style}, 
            this.props.children
         )
       )
     }
   });
 }
-
 
 },{}],4:[function(require,module,exports){
 module.exports = function (React) {
@@ -198,17 +199,19 @@ module.exports = function (React) {
     displayName: 'Container',
     propTypes: {
       className: React.PropTypes.string,
-      fluid: React.PropTypes.bool
+      fluid: React.PropTypes.bool,
+      style: React.PropTypes.object,
     },
     getDefaultProps: function () {
       return {
         className: '',
-        fluid: false
+        fluid: false,
+        style: {}
       }
     },
     render: function () {
       return (
-        React.createElement("div", {className:  'container' + (this.props.fluid ? '-fluid' : '') + ' ' + this.props.className}, 
+        React.createElement("div", {className:  'container' + (this.props.fluid ? '-fluid' : '') + ' ' + this.props.className, style:  this.props.style}, 
            this.props.children
         )
       )
@@ -216,23 +219,24 @@ module.exports = function (React) {
   });
 }
 
-
 },{}],5:[function(require,module,exports){
 module.exports = function (React) {
   return React.createClass({
     displayName: 'Row',
     propTypes: {
-      className: React.PropTypes.string
+      className: React.PropTypes.string,
+      style: React.PropTypes.object
     },
     getDefaultProps: function () {
       // Return an empty class name as default
       return {
-        className: ''
+        className: '',
+        style: {}
       }
     },
     render: function () {
       return (
-        React.createElement("div", {className:  'row ' + this.props.className}, 
+        React.createElement("div", {className:  'row ' + this.props.className, style:  this.props.style}, 
           /* Render children */ 
            this.props.children
         )
@@ -240,6 +244,5 @@ module.exports = function (React) {
     }
   });
 }
-
 
 },{}]},{},[1]);

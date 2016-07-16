@@ -18,7 +18,8 @@ module.exports = function (React) {
       large: React.PropTypes.number,
       largeOffset: React.PropTypes.number,
       largePush: React.PropTypes.number,
-      largePull: React.PropTypes.number
+      largePull: React.PropTypes.number,
+      style: React.PropTypes.object,
     },
     getDefaultProps: function () {
       return {
@@ -38,7 +39,8 @@ module.exports = function (React) {
         large: 0,
         largeOffset: 0,
         largePush: 0,
-        largePull: 0
+        largePull: 0,
+        style: {},
       }
     },
     getColumnWidths: function () {
@@ -130,7 +132,7 @@ module.exports = function (React) {
       className = className.concat(this.getColumnPull());
 
       return (
-        React.createElement("div", {className:  className.join(' ') + ' ' + this.props.className}, 
+        React.createElement("div", {className:  className.join(' ') + ' ' + this.props.className, style:  this.props.style}, 
            this.props.children
         )
       )
