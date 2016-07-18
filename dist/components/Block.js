@@ -5,14 +5,16 @@ module.exports = function (React) {
       extraSmall: React.PropTypes.bool,
       small: React.PropTypes.bool,
       medium: React.PropTypes.bool,
-      large: React.PropTypes.bool
+      large: React.PropTypes.bool,
+      style: React.PropTypes.object
     },
     getDefaultProps: function () {
       return {
         extraSmall: false,
         small: false,
         medium: false,
-        large: false
+        large: false,
+        style: {}
       };
     },
     getClassName: function () {
@@ -35,7 +37,7 @@ module.exports = function (React) {
     },
     render: function() {
       return (
-        React.createElement("div", {className:  'clearfix ' + this.getClassName()})
+        React.createElement("div", {className:  'clearfix ' + this.getClassName(), style:  this.props.style})
       )
     }
   });
